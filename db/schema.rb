@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019054649) do
+ActiveRecord::Schema.define(version: 20131019063507) do
+
+  create_table "needies", force: true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.string   "country"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "purposes", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -33,5 +48,13 @@ ActiveRecord::Schema.define(version: 20131019054649) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "wishes", force: true do |t|
+    t.date     "due_date"
+    t.string   "wish_item"
+    t.decimal  "percent_fullfilled", precision: 6, scale: 5
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
