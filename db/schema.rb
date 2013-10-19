@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131019065401) do
+ActiveRecord::Schema.define(version: 20131019105015) do
+
+  create_table "contributions", force: true do |t|
+    t.decimal  "contributed_qty", precision: 10, scale: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "wish_id"
+    t.integer  "user_id"
+  end
+
+  add_index "contributions", ["user_id"], name: "contributions_user_id_fk", using: :btree
+  add_index "contributions", ["wish_id"], name: "contributions_wish_id_fk", using: :btree
 
   create_table "help_types", force: true do |t|
     t.string   "name"
@@ -62,5 +73,8 @@ ActiveRecord::Schema.define(version: 20131019065401) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_foreign_key "contributions", "users", name: "contributions_user_id_fk"
+  add_foreign_key "contributions", "wishes", name: "contributions_wish_id_fk"
 
 end
