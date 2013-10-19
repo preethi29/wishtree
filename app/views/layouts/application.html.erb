@@ -15,7 +15,7 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title> WishTree></title>
+  <title> WishTree</title>
 
   <%= stylesheet_link_tag "application" %>
   <%= javascript_include_tag "vendor/custom.modernizr" %>
@@ -27,20 +27,27 @@
   <ul class="title-area">
     <!-- Title Area -->
     <li class="name">
-      <h1><a href="#">Top Bar Title </a></h1>
+      <h1>
+        Welcome <%= current_user.name||"hey" if user_signed_in? %></h1>
     </li>
-    <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
     <li class="toggle-topbar icon"><a href="#"><span>Menu</span></a></li>
   </ul>
 
   <section class="top-bar-section">
     <ul class="right">
       <li class="divider"></li>
-      <li class="active"><a href="#">Main Item 1</a></li>
+      <li><%= link_to 'Home', root_path %></li>
       <li class="divider"></li>
-      <li><a href="#">Main Item 2</a></li>
+      <li><%= link_to 'About us' %></li>
       <li class="divider"></li>
-      <li><a href="#">Main Item 3</a></li>
+      <li>
+        <% if user_signed_in? %>
+            <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+        <% else %>
+            <%= link_to "Sign up", new_user_registration_path %>
+            or <%= link_to "Sign in", new_user_session_path %>
+        <% end %>
+      </li>
     </ul>
   </section>
 </nav>
