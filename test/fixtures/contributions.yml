@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: contributions
+#
+#  id              :integer          not null, primary key
+#  contributed_qty :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#  wish_id         :integer
+#  user_id         :integer
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
