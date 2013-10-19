@@ -23,9 +23,48 @@
 
   <body>
 
-    <%= yield %>
+    <!--<nav class="top-bar">-->
+      <!--<ul class="title-area">-->
+        <!--<li class="name">-->
+          <!--<h1>Name</h1>-->
+        <!--</li>-->
+      <!--</ul>-->
+      <!--<section class="top-bar-section">-->
+        <!--<ul class="right">-->
+          <!--<li class="divider"></li>-->
+          <!--<li>name1</li>-->
+          <!--<li class="divider"></li>-->
+          <!--<li>name2</li>-->
+          <!--<li class="divider"></li>-->
+          <!--<li>name3</li>-->
+          <!--<li class="divider"></li>-->
+          <!--<li>name4</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</nav>-->
 
-    
+    <nav class="top-bar">
+      <ul class="title-area">
+        <!-- Title Area -->
+        <li class="name">
+          <h1><a href="#">Top Bar Title </a></h1>
+        </li>
+        <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+        <li class="toggle-topbar icon"><a href="#"><span>Menu</span></a></li>
+      </ul>
+
+      <section class="top-bar-section">
+        <ul class="right">
+          <li class="divider"></li>
+          <li class="active"><a href="#">Main Item 1</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Main Item 2</a></li>
+          <li class="divider"></li>
+          <li><a href="#">Main Item 3</a></li>
+        </ul>
+      </section>
+    </nav>
+
     <%= javascript_include_tag "application" %>
   </body>
 </html>
