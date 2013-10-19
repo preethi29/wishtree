@@ -31,6 +31,8 @@ gem 'annotate'
 
 gem 'mysql2'
 
+gem 'compass'
+
 gem 'zurb-foundation'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
