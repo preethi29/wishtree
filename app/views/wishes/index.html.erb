@@ -8,7 +8,7 @@
       <td><%= wish.id %></td>
       <td><%= wish.due_date %></td>
       <td><%= wish.wish_item %></td>
-      <td><div class="progress round success"> <span class="meter" style="width: 40%"></span><%= wish.percent_fullfilled %></div></td>
+      <td><div class="progress round success"> <span class="meter" style="width: <%=wish.percent_fullfilled%>%"></span><%=wish.percent_fullfilled%></div></td>
       <td><%= link_to 'SEE MORE DETAILS', wish, class: 'button' %></td>
       </tr>
   <% end %>
