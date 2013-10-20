@@ -78,5 +78,10 @@ Wishtree::Application.configure do
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
 
-  load 'lib/deploy/seed'
+  namespace :deploy do
+    desc "reload the database with seed data"
+    task :seed do
+      run "cd #{release_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+    end
+  end
 end
