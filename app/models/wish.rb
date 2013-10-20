@@ -21,4 +21,5 @@ class Wish < ActiveRecord::Base
   belongs_to :needy
   has_one :purpose
   has_one :help_type
+  attr_accessible :percent_fullfilled, :quantity
 end
