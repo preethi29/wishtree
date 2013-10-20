@@ -1,6 +1,6 @@
 Wishtree::Application.routes.draw do
   get "wish/:id" => 'wish#show'
-  post 'contributions/new/:id' => 'contributions#new', as: :contributions
+  get 'contributions/:id' => 'contributions#new', as: :contributions
   post 'contributions/create' => 'contributions#create'
   # resources :contributions
   # resources :contributions

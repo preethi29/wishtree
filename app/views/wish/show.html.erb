@@ -19,5 +19,5 @@
 <br/>
 <%= @wish.percent_fullfilled %>
 <br/>
-<%= button_to "Donate Anonymously", {:controller => 'contributions', :action => 'new'}, {:class => 'button'} %>
+<%= link_to "Donate Anonymously", contributions_path, :method=>'get', :class => 'button' %>
 <%= button_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>

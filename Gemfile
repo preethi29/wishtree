@@ -26,17 +26,11 @@ gem 'turbolinks'
 gem 'jbuilder', '~> 1.2'
 
 gem 'devise'
-
 gem 'annotate'
-
 gem 'mysql2'
-
 gem 'compass'
-
 gem 'zurb-foundation'
-
 gem 'foreigner'
-
 gem 'protected_attributes'
 
 group :doc do
