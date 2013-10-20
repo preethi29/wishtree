@@ -1,5 +1,11 @@
 <div class="text-center">
-<h2>Make a wish</h2>
-<%= link_to "Sign in to continue", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
-<%= link_to "Proceed as judge",{:controller => 'wishes', :action => 'proceed_as_judge'} ,:class => 'button' %>
+    <h2>Make a wish</h2>
+    <%= link_to "Proceed as judge",{:controller => 'wishes', :action => 'proceed_as_judge'} ,:class => 'button' %>
+    <% if current_user != nil %>
+      <%= link_to "Sign out", destroy_user_session_path, :method => :delete, :class => 'button' %>
+      <br/>
+      Login with the user id that has the role receiver...
+    <% else %>
+      <%= link_to "Sign in as a receiver", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
+    <% end %>
 </div>

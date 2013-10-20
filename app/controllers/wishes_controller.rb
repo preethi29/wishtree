@@ -4,7 +4,7 @@ class WishesController < ApplicationController
   end
 
   def new
-    if (user_signed_in?)
+    if (user_signed_in? && (current_user.role.eql?('RECEIVER') || current_user.role.eql?('GUEST')))
       @wish = Wish.new
     else
       render 'choose_user'
