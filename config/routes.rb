@@ -1,5 +1,6 @@
 Wishtree::Application.routes.draw do
-  get "wish/:id" => 'wish#show'
+  get 'wish/' => 'wish#index'
+  get 'wish/:id' => 'wish#show', as: :show_wish
   post 'contributions/new/:id' => 'contributions#new', as: :contributions
   post 'contributions/create' => 'contributions#create'
   # resources :contributions
@@ -9,7 +10,7 @@ Wishtree::Application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'wish#index'
+  root 'home#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

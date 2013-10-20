@@ -6,7 +6,17 @@
   color: white;
   font-size: 0.8125em;
   -webkit-border-radius: 1000px;
-  border-radius: 1000px;
-  width: 20%;
+  border-radius: 10px;
+  width: 150px;
   margin: 2%;
+}
+
+
+tr, td {
+  font-size: 20px;
+  color: black;
+}
+
+table {
+  margin: auto;
 }

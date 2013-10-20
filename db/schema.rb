@@ -69,14 +69,15 @@ ActiveRecord::Schema.define(version: 20131019122322) do
   create_table "wishes", force: true do |t|
     t.date     "due_date"
     t.string   "wish_item"
-    t.decimal  "percent_fullfilled", precision: 5,  scale: 2
+    t.decimal  "percent_fullfilled",              precision: 5,  scale: 2
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "needy_id"
     t.integer  "purpose_id"
     t.integer  "help_type_id"
-    t.decimal  "quantity",           precision: 10, scale: 0
+    t.decimal  "quantity",                        precision: 10, scale: 0
+    t.string   "imagelink",          limit: 1000
   end
 
   add_index "wishes", ["help_type_id"], name: "wishes_help_type_id_fk", using: :btree
