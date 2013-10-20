@@ -33,6 +33,12 @@ gem 'zurb-foundation'
 gem 'foreigner'
 gem 'protected_attributes'
 
+gem 'capistrano', '~> 2.15'
+
+group :production do
+  gem 'therubyracer'
+end
+
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
