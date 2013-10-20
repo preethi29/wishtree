@@ -13,5 +13,5 @@
 class Contribution < ActiveRecord::Base
   attr_accessible :contributed_qty, :user_id, :wish_id
   belongs_to :user
-  belongs_to :wish
+  belongs_to :wishes
 end

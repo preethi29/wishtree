@@ -11,5 +11,5 @@
 #
 
 class Needy < ActiveRecord::Base
-  has_many :wish
+  has_many :wishes
 end

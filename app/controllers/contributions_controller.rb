@@ -16,11 +16,9 @@ class ContributionsController < ApplicationController
   end
 
   def update_percent_fulfilled(contribution)
-    wish = Wish.find_by(contribution.wish_id)
-    percent_fullfilled = (wish.quantity * (wish.percent_fullfilled||0 )+ contribution.contributed_qty )/wish.quantity
-    sign, significant_digits, base, exponent = percent_fullfilled.split
-    updated_percent_fullfilled = sign * "0.#{significant_digits}".to_f * (base** exponent)
-    wish.update_attributes(percent_fullfilled: updated_percent_fullfilled)
+    wish = Wish.find_by(id: contribution.wish_id)
+    percent_fullfilled = ((wish.quantity * (wish.percent_fullfilled / 100))+ contribution.contributed_qty )/wish.quantity
+    wish.update_attributes(percent_fullfilled: percent_fullfilled*100)
   end
 
   def current_user

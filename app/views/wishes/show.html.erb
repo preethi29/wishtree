@@ -1,0 +1,21 @@
+<%= @wish.user.name %>
+<br/>
+<%= @wish.user.email %>
+<br/>
+<%= @wish.user.contact_no %>
+<br/>
+
+<%= @wish.due_date %>
+<br/>
+<%= @wish.wish_item %>
+<br/>
+<%= @wish.quantity %>
+<br/>
+<%= @wish.percent_fullfilled %>
+<br/>
+<% if current_user == nil%>
+    <%= link_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
+    <%= link_to "Donate Anonymously", contributions_path(@wish.id), :method=> 'get',:class => 'button' %>
+<% else %>
+    <%= link_to "Donate now", contributions_path(@wish.id), :method=>'get', :class => 'button' %>
+<% end %>

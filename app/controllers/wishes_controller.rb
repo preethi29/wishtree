@@ -1,4 +1,4 @@
-class WishController < ApplicationController
+class WishesController < ApplicationController
   def show
     @wish=Wish.find(params[:id])
     end

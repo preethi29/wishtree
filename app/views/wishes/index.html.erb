@@ -9,7 +9,7 @@
       <td><%= wish.due_date %></td>
       <td><%= wish.wish_item %></td>
       <td><%= wish.percent_fullfilled %></td>
-      <td><%= link_to 'SEE MORE DETAILS', show_wish_path(wish.id), method: 'get' , class: 'button' %></td>
+      <td><%= link_to 'SEE MORE DETAILS', wish, class: 'button' %></td>
       </tr>
   <% end %>
 </table>
