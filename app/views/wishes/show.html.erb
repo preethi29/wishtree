@@ -40,6 +40,10 @@
   </tr>
 
 </table>
-<%= link_to "Donate Anonymously", contributions_path, :method => 'get', :class => 'button' %>
-<%= button_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
+<% if current_user == nil%>
+    <%= link_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
+    <%= link_to "Donate Anonymously", contributions_path(@wish.id), :method=> 'get',:class => 'button' %>
+<% else %>
+    <%= link_to "Donate now", contributions_path(@wish.id), :method=>'get', :class => 'button' %>
+<% end %>
 
