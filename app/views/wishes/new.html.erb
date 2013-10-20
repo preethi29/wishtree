@@ -1,24 +1,26 @@
-<h2>Make a wish</h2>
 <%= form_for(@wish) do |f| %>
-    <div><%= f.label :wish_for %>
-      <br/>
-      <%= f.text_field :wish_item %></div>
+    <div class='small-3 columns'>
+      <h2>Make a wish</h2>
 
-    <div><%= f.label :due_date %>
-      <br/>
-      <%= f.text_field :due_date, placeholder: "yyyy-mm-dd" %></div>
+      <div><%= f.label :wish_for %>
+        <br/>
+        <%= f.text_field :wish_item %></div>
 
-    </div>
+      <div><%= f.label :due_date %>
+        <br/>
+        <%= f.text_field :due_date, placeholder: "yyyy-mm-dd" %></div>
 
-    <div><%= f.label :quantity %>
-      <br/>
-      <%= f.text_field :quantity %></div>
 
-    <%= f.hidden_field :user_id, :value => current_user.id %>
+      <div><%= f.label :quantity %>
+        <br/>
+        <%= f.text_field :quantity %></div>
 
-    <div><%= f.label :help_type %>
-      <br/>
-      <%= f.select :help_type_id, options_for_select(HelpType.all.collect { |h| [h.name, h.id] }) %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
+
+      <div><%= f.label :help_type %>
+        <br/>
+        <%= f.select :help_type_id, options_for_select(HelpType.all.collect { |h| [h.name, h.id] }) %>
+      </div>
 
       <div><%= f.label :purpose %>
         <br/>
@@ -30,4 +32,5 @@
       Country: <input type="text" name="country">
 
       <div><%= f.submit "Submit wish" %></div>
+    </div>
 <% end %>
