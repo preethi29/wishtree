@@ -2,19 +2,6 @@
     <div class='small-3 columns'>
       <h2>Make a wish</h2>
 
-      <div><%= f.label :wish_for %>
-        <br/>
-        <%= f.text_field :wish_item %></div>
-
-      <div><%= f.label :due_date %>
-        <br/>
-        <%= f.text_field :due_date, placeholder: "yyyy-mm-dd" %></div>
-
-
-      <div><%= f.label :quantity %>
-        <br/>
-        <%= f.text_field :quantity %></div>
-
       <%= f.hidden_field :user_id, :value => current_user.id %>
 
       <div><%= f.label :help_type %>
@@ -25,6 +12,20 @@
       <div><%= f.label :purpose %>
         <br/>
         <%= f.select :purpose_id, options_for_select(Purpose.all.collect { |p| [p.name, p.id] }) %></div>
+
+      <div><%= f.label :wish_item %>
+        <br/>
+        <%= f.text_field :wish_item %></div>
+
+
+      <div><%= f.label :quantity %>
+        <br/>
+        <%= f.text_field :quantity %></div>
+
+      <div><%= f.label :due_date %>
+        <br/>
+        <%= f.text_field :due_date, placeholder: "yyyy-mm-dd" %></div>
+
 
       <h4 class='black'>Needy's Information</h4>
       Name: <input type="text" name="name">

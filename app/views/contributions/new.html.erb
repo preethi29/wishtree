@@ -3,7 +3,7 @@
     <div class='small-3 columns'>
 
     Your Email id: <input type="text" name="email" value=<%= current_user.email if ["CONTRIBUTOR","RECEIVER"].include?(current_user.role)%> >
-    <%= f.label :contributed_qty %>
+    <%= f.label :qty_to_contribute %>
     <%= f.text_field :contributed_qty, :size => 10 %>
     <%= f.hidden_field :wish_id, :value => params[:id] %>
     <%= f.hidden_field :user_id, :value => current_user.id %>
