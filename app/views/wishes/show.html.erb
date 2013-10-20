@@ -24,26 +24,37 @@
     <td><%= @wish.due_date %></td>
   </tr>
   <tr>
-    <th>ITEM WISHED FOR
+    <th>ITEM WISHED FOR</th>
       <td><%= @wish.wish_item %></td>
-    </th>
+
   </tr>
   <tr>
-    <th>QUANTITY
+    <th>QUANTITY </th>
       <td><%= @wish.quantity %></td>
-    </th>
+
   </tr>
   <tr>
-    <th>PERCENTAGE FULFILLED
+    <th>PERCENTAGE FULFILLED</th>
       <td><%= @wish.percent_fullfilled %></td>
-    </th>
+
+  </tr>
+  <tr>
+    <th>PURPOSE</th>
+      <td><%= Purpose.find(@wish.purpose_id).name %></td>
+  </tr>
+
+  <tr>
+    <th>KIND OF HELP NEEDED</th>
+    <td><%= HelpType.find(@wish.help_type_id).name %></td>
   </tr>
 
 </table>
+<table>
 <% if current_user == nil%>
-    <%= link_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
-    <%= link_to "Donate Anonymously", contributions_path(@wish.id), :method=> 'get',:class => 'button' %>
+   <tr></tr> <td><%= link_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %></td>
+    <td><%= link_to "Donate Anonymously", contributions_path(@wish.id), :method=> 'get',:class => 'button' %></td></tr>
 <% else %>
-    <%= link_to "Donate now", contributions_path(@wish.id), :method=>'get', :class => 'button' %>
+    <tr><td><%= link_to "Donate now", contributions_path(@wish.id), :method=>'get', :class => 'button' %><td>`</td><tr>
 <% end %>
+</table>
 
