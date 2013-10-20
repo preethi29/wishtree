@@ -4,6 +4,7 @@ class WishController < ApplicationController
     end
   
   def index
+    session[:guest_user_id]= nil
     @wishes = Wish.all
   end
 
