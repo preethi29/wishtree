@@ -1,15 +1,15 @@
 Wishtree::Application.routes.draw do
-  get '/wish/' => 'wish#index'
   get "wish/:id" => 'wish#show'
-  get 'contributions/new/:id' => 'contributions#new', as: :contributions
+  post 'contributions/new/:id' => 'contributions#new', as: :contributions
   post 'contributions/create' => 'contributions#create'
+  # resources :contributions
   # resources :contributions
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'home#index'
+  root 'wish#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

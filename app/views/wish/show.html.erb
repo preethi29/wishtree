@@ -1,1 +1,23 @@
-<%= @wish.id %>
+
+<%= @wish.user.name %>
+<br/>
+<%= @wish.user.email %>
+<br/>
+<%= @wish.user.contact_no %>
+<br/>
+<%= @wish.needy.name %>
+<br/>
+<%= @wish.needy.age %>
+<br/>
+<%= @wish.needy.country %>
+<br/>
+<%= @wish.due_date %>
+<br/>
+<%= @wish.wish_item %>
+<br/>
+<%= @wish.quantity %>
+<br/>
+<%= @wish.percent_fullfilled %>
+<br/>
+<%= button_to "Donate Anonymously", {:controller => 'contributions', :action => 'new'}, {:class => 'button'} %>
+<%= button_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
