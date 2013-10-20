@@ -18,6 +18,9 @@
   <div><%= f.label :name %><br/>
   <%= f.text_field :name %></div>
 
+  <div><%= f.label :role %><br/>
+  <%= f.select :role, options_for_select(%w[CONTRIBUTOR RECEIVER]) %></div>
+
   <div><%= f.submit "Sign up" %></div>
 <% end %>
 
