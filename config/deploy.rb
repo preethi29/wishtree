@@ -90,3 +90,10 @@ deploy.task :restart, :roles => :app do
   # Restart Application
   run "touch #{current_path}/tmp/restart.txt"
 end
+
+namespace :deploy do
+  desc "reload the database with seed data"
+  task :seed do
+    run "cd #{release_path} && bundle exec rake db:seed RAILS_ENV=#{rails_env}"
+  end
+end
