@@ -4,10 +4,10 @@ class WishesController < ApplicationController
   end
 
   def new
-    if(user_signed_in?)
+    if (user_signed_in?)
       @wish = Wish.new
     else
-       render 'choose_user'
+      render 'choose_user'
     end
   end
 
@@ -22,7 +22,7 @@ class WishesController < ApplicationController
     needy=Needy.create(needy_params)
     @wish=Wish.create(params[:wish])
     if (@wish.save && needy.save)
-      if(current_user.role.eql?'GUEST')
+      if (current_user.role.eql? 'GUEST')
         sign_out(current_user)
       end
       redirect_to root_path
