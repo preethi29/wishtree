@@ -5,10 +5,11 @@ class ContributionsController < ApplicationController
 
   def create
     params.require(:contribution).permit!
-    @contribution = Contribution.create( params[:contribution])
+    @contribution = Contribution.create(params[:contribution])
     if @contribution.save
       current_user.update_attributes(email: params[:email])
       update_percent_fulfilled(@contribution)
+      session[:guest_user_id]= nil
       redirect_to root_path
     else
       render 'new'
@@ -17,7 +18,7 @@ class ContributionsController < ApplicationController
 
   def update_percent_fulfilled(contribution)
     wish = Wish.find_by(id: contribution.wish_id)
-    percent_fullfilled = ((wish.quantity * (wish.percent_fullfilled / 100))+ contribution.contributed_qty )/wish.quantity
+    percent_fullfilled = ((wish.quantity * (wish.percent_fullfilled / 100))+ contribution.contributed_qty)/wish.quantity
     wish.update_attributes(percent_fullfilled: percent_fullfilled*100)
   end
 

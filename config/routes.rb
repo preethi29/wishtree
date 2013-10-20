@@ -2,6 +2,7 @@ Wishtree::Application.routes.draw do
   get 'contributions/:id' => 'contributions#new', as: :contributions
   post 'contributions/create' => 'contributions#create'
   resources :wishes
+  get 'wish/proceed_as_judge/'=> 'wishes#proceed_as_judge'
   # resources :contributions
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
