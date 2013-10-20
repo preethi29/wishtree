@@ -1,3 +1,5 @@
+ Email id: <input type="text" name="email" value=<%= current_user.email if current_user%>/>
+
 <%= form_for @contribution , :url => contributions_create_path do |f| %>
     <%= f.label :contributed_qty %>
     <%= f.text_field :contributed_qty, :size => 10 %>
