@@ -11,5 +11,6 @@
 #
 
 class Needy < ActiveRecord::Base
+  attr_accessible :name, :age, :country
   has_many :wishes
 end

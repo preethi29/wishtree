@@ -16,8 +16,8 @@
 #  created_at             :datetime
 #  updated_at             :datetime
 #  name                   :string(255)
-#  giver                  :boolean
 #  contact_no             :string(255)
+#  role                   :string(255)
 #
 
 class User < ActiveRecord::Base
