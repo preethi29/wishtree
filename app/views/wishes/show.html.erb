@@ -1,21 +1,45 @@
-<%= @wish.user.name %>
-<br/>
-<%= @wish.user.email %>
-<br/>
-<%= @wish.user.contact_no %>
-<br/>
+<table>
+  <tr>
+    <th>USER NAME</th>
+    <td><%= @wish.user.id %></td>
+  </tr>
+  <tr>
+    <th>EMAIL</th>
+    <td><%= @wish.user.email %></td>
+  <tr>
+  <tr>
+    <th>CONTACT NUMBER</th>
+    <td><%= @wish.user.contact_no %></td>
+  </tr>
+  <tr>
+    <th>NAME OF THE PERSON WHO NEEDS YOUR HELP</th>
+    <td><%= @wish.needy.name %></td>
+  </tr>
+  <tr>
+    <th>COUNTRY OF THE PERSON</th>
+    <td><%= @wish.needy.country %></td>
+  </tr>
+  <tr>
+    <th>DUE DATE</th>
+    <td><%= @wish.due_date %></td>
+  </tr>
+  <tr>
+    <th>ITEM WISHED FOR
+      <td><%= @wish.wish_item %></td>
+    </th>
+  </tr>
+  <tr>
+    <th>QUANTITY
+      <td><%= @wish.quantity %></td>
+    </th>
+  </tr>
+  <tr>
+    <th>PERCENTAGE FULFILLED
+      <td><%= @wish.percent_fullfilled %></td>
+    </th>
+  </tr>
 
-<%= @wish.due_date %>
-<br/>
-<%= @wish.wish_item %>
-<br/>
-<%= @wish.quantity %>
-<br/>
-<%= @wish.percent_fullfilled %>
-<br/>
-<% if current_user == nil%>
-    <%= link_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
-    <%= link_to "Donate Anonymously", contributions_path(@wish.id), :method=> 'get',:class => 'button' %>
-<% else %>
-    <%= link_to "Donate now", contributions_path(@wish.id), :method=>'get', :class => 'button' %>
-<% end %>
+</table>
+<%= link_to "Donate Anonymously", contributions_path, :method => 'get', :class => 'button' %>
+<%= button_to "Donate after SignIn", {:controller => 'devise/sessions', :action => 'new'}, {:class => 'button'} %>
+
