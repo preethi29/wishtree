@@ -24,6 +24,7 @@ class WishesController < ApplicationController
     if (@wish.save && needy.save)
       if (current_user.role.eql? 'GUEST')
         sign_out(current_user)
+        session[:guest_user_id]=nil
       end
       redirect_to root_path
       @wish.update_attributes(needy_id: needy.id)

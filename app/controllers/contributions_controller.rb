@@ -33,7 +33,7 @@ class ContributionsController < ApplicationController
   end
 
   def create_guest_user
-    user = User.create(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(99)}@example.com")
+    user = User.create(:name => "guest", :email => "guest_#{Time.now.to_i}#{rand(99)}@example.com",role: "GUEST")
     user.save(:validate => false)
     user
   end
